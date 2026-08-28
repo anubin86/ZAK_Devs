@@ -1,0 +1,9 @@
+-- Service Binding: ZUI_TRAVEL_M_O4_V4
+-- This binding must be created via the ADT Service Binding editor.
+-- It cannot be represented as source code.
+--
+-- Binding Type : OData V4 - UI
+-- Service Definition: ZUI_TRAVEL_M_O4
+--
+-- After activating in ADT, click "Publish" to expose the endpoint at:
+--   /sap/opu/odata4/sap/zui_travel_m_o4/srvd/sap/zui_travel_m_o4/0001/
