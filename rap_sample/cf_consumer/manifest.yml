@@ -1,0 +1,14 @@
+---
+applications:
+  - name: travel-cf-consumer
+    memory: 256M
+    buildpacks:
+      - nodejs_buildpack
+    command: node server.js
+    env:
+      NODE_ENV: production
+    services:
+      - travel-destination-service  # SAP Destination service instance
+      - travel-xsuaa-service        # SAP XSUAA service instance (for principal propagation)
+    health-check-type: http
+    health-check-http-endpoint: /travels

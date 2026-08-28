@@ -1,0 +1,4 @@
+@EndUserText.label: 'Travel OData Service'
+define service ZUI_TRAVEL_M_O4 {
+  expose ZC_TRAVEL_M as Travel;
+}
