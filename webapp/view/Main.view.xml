@@ -1,0 +1,14 @@
+<mvc:View
+	controllerName="com.zakdevs.sapui.controller.Main"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout">
+	<Page title="{i18n>appTitle}">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<Title text="{i18n>welcomeTitle}" level="H2"/>
+				<Text text="{i18n>welcomeText}" class="sapUiSmallMarginTop"/>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>
