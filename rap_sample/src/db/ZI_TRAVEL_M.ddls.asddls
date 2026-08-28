@@ -2,6 +2,10 @@
 @EndUserText.label: 'Travel Root CDS View'
 define root view entity ZI_TRAVEL_M
   as select from ztraveldb
+
+  association [0..1] to /dmo/I_Agency   as _Agency   on $projection.AgencyID   = _Agency.AgencyID
+  association [0..1] to /dmo/I_Customer as _Customer on $projection.CustomerID = _Customer.CustomerID
+
 {
   key travel_uuid       as TravelUUID,
       travel_id         as TravelID,
@@ -21,5 +25,9 @@ define root view entity ZI_TRAVEL_M
       local_created_at      as LocalCreatedAt,
       local_last_changed_by as LocalLastChangedBy,
       local_last_changed_at as LocalLastChangedAt,
-      last_changed_at       as LastChangedAt
+      last_changed_at       as LastChangedAt,
+
+      /* Associations */
+      _Agency,
+      _Customer
 }

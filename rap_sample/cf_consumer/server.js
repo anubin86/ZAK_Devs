@@ -10,6 +10,13 @@ app.use(express.json());
 const PORT = process.env.PORT || 3000;
 
 /**
+ * GET /health
+ * Lightweight liveness probe — does not contact the backend.
+ */
+app.get('/health', (_req, res) => {
+  res.json({ status: 'ok' });
+});
+/**
  * GET /travels
  * Returns all travel records from the RAP backend.
  */
@@ -32,7 +39,7 @@ app.get('/travels/:travelUuid', async (req, res) => {
     const travel = await getTravelById(req.params.travelUuid);
     res.json(travel);
   } catch (err) {
-    console.error(`GET /travels/${req.params.travelUuid} failed:`, err.message);
+    console.error('GET /travels/:travelUuid failed:', req.params.travelUuid, err.message);
     res.status(502).json({ error: err.message });
   }
 });
@@ -61,7 +68,7 @@ app.post('/travels/:travelUuid/accept', async (req, res) => {
     const result = await acceptTravel(req.params.travelUuid);
     res.json(result);
   } catch (err) {
-    console.error(`POST /travels/${req.params.travelUuid}/accept failed:`, err.message);
+    console.error('POST /travels/:travelUuid/accept failed:', req.params.travelUuid, err.message);
     res.status(502).json({ error: err.message });
   }
 });
@@ -75,7 +82,7 @@ app.post('/travels/:travelUuid/reject', async (req, res) => {
     const result = await rejectTravel(req.params.travelUuid);
     res.json(result);
   } catch (err) {
-    console.error(`POST /travels/${req.params.travelUuid}/reject failed:`, err.message);
+    console.error('POST /travels/:travelUuid/reject failed:', req.params.travelUuid, err.message);
     res.status(502).json({ error: err.message });
   }
 });

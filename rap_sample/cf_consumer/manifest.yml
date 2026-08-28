@@ -11,4 +11,4 @@ applications:
       - travel-destination-service  # SAP Destination service instance
       - travel-xsuaa-service        # SAP XSUAA service instance (for principal propagation)
     health-check-type: http
-    health-check-http-endpoint: /travels
+    health-check-http-endpoint: /health

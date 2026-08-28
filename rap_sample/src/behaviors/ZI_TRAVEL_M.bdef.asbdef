@@ -10,7 +10,6 @@ lock master total etag LastChangedAt
 authorization master( global )
 {
   field ( readonly )
-  TravelUUID,
   LocalCreatedBy,
   LocalCreatedAt,
   LocalLastChangedBy,

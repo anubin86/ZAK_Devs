@@ -229,13 +229,16 @@ CLASS lhc_Travel IMPLEMENTATION.
         WITH CORRESPONDING #( keys )
       RESULT DATA(travels).
 
+    DATA updates TYPE TABLE FOR UPDATE ZI_TRAVEL_M\\Travel.
     LOOP AT travels ASSIGNING FIELD-SYMBOL(<travel>).
-      MODIFY ENTITIES OF ZI_TRAVEL_M IN LOCAL MODE
-        ENTITY Travel
-          UPDATE FIELDS ( TotalPrice )
-          WITH VALUE #( ( %tky       = <travel>-%tky
-                          TotalPrice = <travel>-BookingFee ) ).
+      APPEND VALUE #( %tky       = <travel>-%tky
+                      TotalPrice = <travel>-BookingFee ) TO updates.
     ENDLOOP.
+
+    MODIFY ENTITIES OF ZI_TRAVEL_M IN LOCAL MODE
+      ENTITY Travel
+        UPDATE FIELDS ( TotalPrice )
+        WITH updates.
   ENDMETHOD.
 
 ENDCLASS.

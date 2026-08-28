@@ -1,10 +1,9 @@
-@EndUserText.label: 'Travel Service Binding - OData V4 UI'
-@Environment.systemField: #SYSTEM_DATE
-define root view entity ZI_TRAVEL_M
-  -- Service Binding: ZUI_TRAVEL_M_O4_V4
-  -- Binding Type: OData V4 - UI
-  -- Namespace: /IWBEP/
-  --
-  -- After activating this service binding in ABAP Development Tools,
-  -- publish it so it is accessible via:
-  --   /sap/opu/odata4/sap/zui_travel_m_o4/srvd/sap/zui_travel_m_o4/0001/
+-- Service Binding: ZUI_TRAVEL_M_O4_V4
+-- This binding must be created via the ADT Service Binding editor.
+-- It cannot be represented as source code.
+--
+-- Binding Type : OData V4 - UI
+-- Service Definition: ZUI_TRAVEL_M_O4
+--
+-- After activating in ADT, click "Publish" to expose the endpoint at:
+--   /sap/opu/odata4/sap/zui_travel_m_o4/srvd/sap/zui_travel_m_o4/0001/
